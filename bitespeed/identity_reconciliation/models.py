@@ -1,17 +1,8 @@
+from typing import Any
 from django.db import models
 
 # Create your models here.
 class User(models.Model):
-#     {
-# 	id                   Int                   
-#   phoneNumber          String?
-#   email                String?
-#   linkedId             Int? // the ID of another Contact linked to this one
-#   linkPrecedence       "secondary"|"primary" // "primary" if it's the first Contact in the link
-#   createdAt            DateTime              
-#   updatedAt            DateTime              
-#   deletedAt            DateTime?
-# }
     class LinkPrecedenceChoices(models.TextChoices):
         primary = 'primary'
         secondary = 'secondary'
@@ -24,6 +15,11 @@ class User(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
     updatedAt = models.DateTimeField(auto_now=True)
     deletedAt = models.DateTimeField(default=None, blank=True, null=True)
+    
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        super().__init__(*args, **kwargs)
+        if self.linkPrecedence == self.LinkPrecedenceChoices.secondary and self.linkedId == None:
+            raise RuntimeError('linkPrecedence set to secondary but no primary linkedId provided')
     
     def __str__(self) -> str:
         return f"id: {self.id}; email: {self.email}; phoneNumber: {self.phoneNumber}"
