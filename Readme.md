@@ -4,7 +4,7 @@ https://bitespeed.notion.site/Bitespeed-Backend-Task-Identity-Reconciliation-533
 
 ## NOTES
 
-* The app is currently deployed at http://bitespeed.arm.ravimakes.com/
+* The app is currently deployed at https://bitespeed.arm.ravimakes.com/
   * There are two endpoints:
     * /identify - The required endpoint to identify user
     * /reset - Removes all users

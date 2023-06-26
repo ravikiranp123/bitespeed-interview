@@ -28,3 +28,8 @@ def reset(request):
         User.objects.filter(linkPrecedence=User.LinkPrecedenceChoices.primary).delete()
         return HttpResponseNotFound("Success")
     return HttpResponseNotFound("Only post methods are accepted")
+
+
+@csrf_exempt
+def main(request):
+    return render(request, 'Readme.html', context={})
