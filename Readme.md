@@ -14,6 +14,8 @@ https://bitespeed.notion.site/Bitespeed-Backend-Task-Identity-Reconciliation-533
   * At a high level, there are multiple 'rules' defined. Such as a rule when no matches are found => create a new primary user
   * These rules are looped through and stopped when a rule succeeds.
   * A helper function then fetches all users where either their id or their linkedId matches the id/linkedId of the returned user
+* This project has CI/CD built in
+* I am currently using Docker and Caprover to deploy on an Oracle virtual machine
 
 ## TODO
 
