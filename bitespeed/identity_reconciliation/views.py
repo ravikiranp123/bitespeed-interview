@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.views.decorators.csrf import csrf_exempt
 
 from .recon_logic import recon_main
-
+from .models import User
 # Create your views here.
 
 
@@ -19,4 +19,12 @@ def identify(request):
         phoneNumber = body['phoneNumber']
         res = recon_main(email, phoneNumber)
         return HttpResponse(json.dumps(res))
+    return HttpResponseNotFound("Only post methods are accepted")
+
+@csrf_exempt
+def reset(request):
+    if request.method == "POST":
+        User.objects.filter(linkPrecedence=User.LinkPrecedenceChoices.secondary).delete()
+        User.objects.filter(linkPrecedence=User.LinkPrecedenceChoices.primary).delete()
+        return HttpResponseNotFound("Success")
     return HttpResponseNotFound("Only post methods are accepted")
