@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-a#)_t8k3^bp_(8^zzl3v0z!r88z-l-gnc3r4i4tf4nik&71wf6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bitespeed.arm.ravimakes.com']
 
 
 # Application definition
