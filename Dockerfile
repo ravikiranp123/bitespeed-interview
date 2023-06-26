@@ -16,5 +16,6 @@ RUN pip install -r requirements.txt
 # copy project
 COPY ./bitespeed .
 
-EXPOSE 5000
-CMD ["gunicorn","--bind", ":5000", "core.wsgi:application"]
+EXPOSE 8000
+# CMD ["gunicorn", "bitespeed.wsgi", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
