@@ -21,3 +21,4 @@ https://bitespeed.notion.site/Bitespeed-Backend-Task-Identity-Reconciliation-533
 
 * [ ] Write tests
 * [ ] Improve documentation
+* [ ] Rewrite with express and typescript
